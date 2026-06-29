@@ -1,35 +1,39 @@
-# 🏪 End-to-End Retail Sales Business Intelligence Project
+# retail-sales-business-intelligence-
 
-An enterprise-grade business intelligence and data analytics solution engineering a full data pipeline across **Excel**, **Power BI**, **Python**, and **SQL Server** to audit, model, and visualize corporate retail transactions.
-
----
-
-## 💎 Project Portfolios & Strategic Analyses
-
-### 1️⃣ Corporate Financial Performance Analysis (Microsoft Excel)
-![Excel Executive Dashboard](dashboard excel.jpg)
-This corporate executive dashboard bridges macro financial tracking with granular cross-dimensional slicing. Built on a modernized, low-fatigue dark theme, it serves as the strategic visual baseline for core enterprise KPIs. By auditing historical transaction ledger flows, the dashboard uncovers a massive **SAR 10.08 Billion in Total Revenue** driving a highly stable **SAR 3.78 Billion in Net Profit**—retaining a robust **37% corporate profit margin** across **1,998 commercial orders**. Key performance matrices reveal that the **Eastern and Central regions (Dammam and Riyadh)** serve as our core revenue strongholds (generating nearly ~SAR 1.9M each), while **Food and Office segments** command absolute consumer volume velocity.
+📊 This project walks through a complete sales analysis workflow for a retail dataset spanning 2004–2006, using four different tools to cover the full pipeline — from data cleaning to final reporting.
+Excel and Power BI handle the dashboarding and reporting layer, Python takes care of data cleaning and deeper exploratory analysis, and SQL Server powers the underlying queries that drive the regional and rep-level insights.
 
 ---
 
-### 2️⃣ Multi-Dimensional Interactive Intelligence (Microsoft Power BI)
-This analytical suite deploys advanced dynamic filtering, cross-filtering matrices, and recursive DAX modeling across multiple granular management tiers:
-* **The Macro Lens (`powerbi.jpg`):** Tracks the global pipeline trend showing a historic end-of-year apex in **December at nearly SAR 1,000K**, followed by a cyclical stabilization and a noticeable summer contraction dipping to **SAR 700K**. It highlights that account client **Carrefour** captures supreme channel velocity at **SAR 2.6M**, while sales rep **Yahia** dominates individual pipeline conversions at **SAR 2.2M**.
-* **The Seasonal Deep-Dive (`2004 powerbi.jpg`):** Segments fiscal parameters specifically for **2004**, isolating **SAR 2.76M in Top-line Revenue**, a net profit of **SAR 1.04M**, and a transaction volume velocity of **532 institutional orders**.
-* **The Regional Hub Audit (`jeddahpowerbi.jpg`):** Isolates the Western territory market ecosystem exclusively for **Jeddah Hub**. This target analysis extracts a localized regional slice of **SAR 895.45K in Sales yielding SAR 315.67K in Profit** at a 30% margin, with **Lulu Hypermarket** emerging as the dominant local accounts distribution driver (**SAR 0.26M**).
+### 1️⃣ Excel Dashboard 📈
+![Excel Dashboard](dashboard_excel.jpg)
+The Excel dashboard presents the full three-year sales performance (2004–2006) in a clean, low-fatigue dark theme. Interactive slicers filter by city and year, while the main panel tracks total sales, profit, margin, and order count — landing at SAR 10.08M in sales, SAR 3.78M in profit, a 37% margin, and 1,998 orders. The city comparison highlights Riyadh and Dammam as the strongest contributors, while Food and Office drive the highest sales volume.
 
 ---
 
-### 3️⃣ Automated ETL & Statistical Exploration (Python - Pandas & Plotly)
-An automated program script built using a structured **Jupyter Notebook (`Zainab_Python_Analysis.ipynb`)** to process raw transactional data feeds. The ingestion pipeline begins with strict automated Data Wrangling, handling missing cells, programmatically fixing anomalies (such as auditing and normalizing manual data-entry errors like 'Mjeeed' to 'Mjeed' and 'Lulu Hyper' to 'Lulu'), and applying mathematical imputation to ensure absolute data integrity. Advanced Exploratory Data Analysis (EDA) leverages Plotly to render interactive cross-category heatmaps, sample scatter-plots mapping Sale-vs-Profit velocity, and transaction distribution pies, mathematically confirming that while **Toys** possess a smaller raw sales volume, they command significantly higher per-unit profit margin efficiencies.
+### 2️⃣ Power BI ⚡
+
+#### Macro Cross-Year Overview:
+![Power BI Unfiltered](powerbi.jpg)
+The unfiltered view mirrors the Excel totals — SAR 10.08M in sales, SAR 3.78M in profit, 37% margin, 1,998 orders — with Yahia as the top rep (SAR 2.2M) and Carrefour as the top account (SAR 2.6M).
+
+#### Fiscal Year 2004 Focus:
+![Power BI 2004](2004_powerbi.jpg)
+Filtering to 2004 alone narrows this to SAR 2.76M in sales and SAR 1.04M in profit across 532 orders, with Yahia and Carrefour still leading.
+
+#### Jeddah Regional Hub Focus:
+![Power BI Jeddah](jeddahpowerbi.jpg)
+Filtering instead by region to Jeddah tells a different story: SAR 895.45K in sales and SAR 315.67K in profit at a lower 30% margin, with Mjeed as the top local rep and Lulu Hypermarket overtaking Carrefour as the top account in that market.
 
 ---
 
-### 4️⃣ Enterprise Relational Data Modeling (SQL Server - T-SQL Pipelines)
-A high-performance query script file **(`Zainab_SQL.sql`)** built to construct complex database analytical engines. The architecture implements optimized **Common Table Expressions (CTEs)** and advanced **Window Functions** to deliver sub-second multi-tier aggregation:
-* **Query 1:** Calculates localized regional profitability matrixing via structured `GROUP BY` and `ORDER BY` logic to instantly rank markets by net profitability.
-* **Query 2:** Engineers partition-based window ranking queries using `RANK() OVER (PARTITION BY prod ORDER BY SUM(Sale) DESC)` to programmatically isolate and crown the #1 top-performing sales representative for every independent product category.
-* **Query 3:** Constructs a time-series growth tracking pipeline leveraging relational `LAG()` offsets to calculate strict **Month-over-Month Growth Percentages (MoMGrowthPct)**, empowering corporate directors to instantly monitor performance acceleration or deceleration across sequential fiscal intervals.
+### 3️⃣ Python 🐍
+The Python notebook (`Zainab_Python_Analysis.ipynb`) handles the data cleaning behind the dashboards — using pandas to fix inconsistent entries like “Mjeeed” to “Mjeed” and fill missing values. Plotly visualizations then explore the data further with a correlation heatmap, a sales-vs-profit scatter plot, and category distribution pies, revealing that Toys carry a stronger profit margin per unit than higher-volume categories like Food.
 
 ---
-_🛡️ Certified and securely maintained under the MIT License framework by Zainab._
+
+### 4️⃣ SQL Server 🗄️
+The SQL script (`Zainab_SQL.sql`) builds the queries behind the regional and rep-level numbers: one ranks cities by profitability, one uses `RANK() OVER (PARTITION BY prod ORDER BY SUM(Sale) DESC)` to find the top rep per product category, and one uses `LAG()` to track month-over-month sales growth by city.
+
+---
+_🛡️ Maintained under the MIT License framework by Zainab._
